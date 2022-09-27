@@ -76,5 +76,9 @@ SVs in regions where both genomes were haplotype 1 were then compared in IGV (ig
 v6 assemblies were mapped to themselves, and also CC-1690 
 
 ```
+minimap2 -ax asm5 -t36 CC503_v6.fa CC4532_v6.fa | samtools sort -@6 -T v6.sorting.tmp -O bam -o CC503_CC4532.bam -
+minimap2 -ax asm5 -t36 CC503_v6.fa CC1690.fa | samtools sort -@6 -T v6.sorting.tmp -O bam -o CC503_CC1690.bam -
 
+minimap2 -ax asm5 -t36 CC4532_v6.fa CC503_v6.fa | samtools sort -@6 -T v6.sorting.tmp -O bam -o CC4532_CC503.bam -
+minimap2 -ax asm5 -t36 CC4532_v6.fa CC1690.fa | samtools sort -@6 -T v6.sorting.tmp -O bam -o CC4532_CC1690.bam -
 ```
