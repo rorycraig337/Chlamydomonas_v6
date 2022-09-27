@@ -21,3 +21,14 @@ Run cactus
 cactus jobStore4 ./Cr_5way_seqFile.txt  ./Cr-5way.hal --binariesMode local --maxCores 30
 ```
 
+Bed file liftover between assemblies was then performed e.g. for v5 hypermethylated region coordinates to CC-4532 v6
+
+```
+halLiftover Cr_5way.hal CC503v5 CC503-v5_hypermethylated.bed CC4532 CC4532_hypermethylated.bed
+```
+
+Or for the v5 gaps to CC-4532 v6
+
+```
+halLiftover Cr_5way.hal CC503v5 CC503-v5_gap_flanks.bed CC4532 CC4532_v5_gaps.bed
+```
