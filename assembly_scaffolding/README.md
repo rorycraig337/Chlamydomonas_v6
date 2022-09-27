@@ -7,9 +7,11 @@ asm5 was generally used for manual scaffolding of contigs, although asm20 alignm
 Assemblies were manually scaffolded, redundant contigs removed, and gap lengths estimated based on manual curation of PAF files
 
 ```
-minimap2 -cx asm5 CC1690.fa CC4532_preliminary_contigs.fa -t12 --cs | sort -k6,6 -k8,8n > CC4532_asm5.paf minimap2 -cx asm20 CC1690.fa CC4532_preliminary_contigs.fa -t12 --cs | sort -k6,6 -k8,8n > CC4532_asm20.paf
+minimap2 -cx asm5 CC1690.fa CC4532_preliminary_contigs.fa -t12 --cs | sort -k6,6 -k8,8n > CC4532_asm5.paf 
+minimap2 -cx asm20 CC1690.fa CC4532_preliminary_contigs.fa -t12 --cs | sort -k6,6 -k8,8n > CC4532_asm20.paf
 
-minimap2 -cx asm5 CC1690.fa CC503_preliminary_contigs.fa -t12 --cs | sort -k6,6 -k8,8n > CC503_asm5.paf minimap2 -cx asm20 CC1690.fa CC503_preliminary_contigs.fa -t12 --cs | sort -k6,6 -k8,8n > CC503_asm5.paf
+minimap2 -cx asm5 CC1690.fa CC503_preliminary_contigs.fa -t12 --cs | sort -k6,6 -k8,8n > CC503_asm5.paf 
+minimap2 -cx asm20 CC1690.fa CC503_preliminary_contigs.fa -t12 --cs | sort -k6,6 -k8,8n > CC503_asm5.paf
 ```
 
 For visual confirmation in IGV, raw PacBio reads were mapped to the final assemblies
