@@ -30,3 +30,10 @@ Remove overlapping TEs to get unique base counts
 cat ../trf/CC4532_v6.sat_all.bed m.CC4532_v6.other.bed | sort -k1,1 -k2n,2n | bedtools merge -i stdin > m.CC4532_v6.all_TRs.bed
 bedtools subtract -a m.CC4532_v6.all_TRs.bed -b m.CC4532_v6.TEs.bed > u.CC4532_v6.all_TRs.bed
 ```
+
+Softmask genome for Cactus whole-genome alignment
+
+```
+cat u.CC4532_v6.all_TRs.bed m.CC4532_v6.TEs.bed | sort -k1,1 -k2n,2n | bedtools merge -i stdin > m.CC4532_v6.all_repeats.bed
+bedtools maskfasta -fi CC4532_v6.fa -bed m.CC4532_v6.all_repeats.bed -fo CC4532_v6.rm.fa -soft
+```
