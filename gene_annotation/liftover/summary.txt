@@ -1,0 +1,42 @@
+##Analysis 3: missing gene pipeline
+
+#potential missing genes can come from three sources
+
+	1) from genes present in v4 but missing in v5 (provided by Ian Blaby)
+	2) from genes identified by Craig et al. (2020) using the v5 genome, several of which are novel polycistronic
+	3) from genes present in v5 that may be absent in v6.1e CC-503 or v1.1 CC-4532
+	4) from genes present in CC-503 v6.1e but absent in CC-4532 v1.1, or vice versa
+
+#all sets were stringently filtered on TE overlap and coding potential (requiring an algal homolog, functional domain or phyloCSF score >=100)
+#this was to avoid adding in "missing genes" that were in fact false positives all along
+#set 4 genes took priority over other sets in case of redundancy
+#Mating type R domain genes were not inclded in analyses
+
+#to identify putative missing genes a Cactus whole-genome alignment was produced between CC-503 v4, CC-503 v5, CC-503 v6 and CC-4532 v1
+#CDS coordinates for a given candidate gene were then lifted over between the relevant assemblies (e.g. CC-503 v4 -> v6)
+#if the liftover was near-complete (>90% bases) and the lifted coordinates had minimal (<10%) overlap with CDS in the existing annotation it was considered putatively missing
+#analyses were performed after filtering the CC-503 v6.1e and CC-4532 v1.1 annotaitons for TE genes and low quality genes
+
+#results for CC-503
+
+source 1 = 6 genes
+source 2 = 40 genes
+source 3 = 475 genes
+source 4 = 280 genes
+total = 801 genes
+
+CC503.v6_1e.missing_gene_proteins.fa = fasta of all missing proteins
+CC503.v6_1e.missing_gene_liftover.tsv = % liftover and % overlap with existing CDS for missing genes
+CC503/ = directory containing per gene files of liftover coordinates for CC-503 v6 genome
+
+#results for CC-4532
+
+source 1 = 6 genes
+source 2 = 40 genes
+source 3 = 460 genes
+source 4 = 266 genes
+total = 772 genes
+
+CC4532.v1_1.missing_gene_proteins.fa = fasta of all missing proteins
+CC4532.v1_1.missing_gene_liftover.tsv = % liftover and % overlap with existing CDS for missing genes
+CC4532/ = directory containing per gene files of liftover coordinates for CC-4532 v1 genome
