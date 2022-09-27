@@ -15,4 +15,35 @@ perl CDS_gff2bed.neg_filter.exon_filter.pl --gff CC4532_preliminary.gene.gff3 --
 
 
 Step 2. Run phyloCSF on 8-species cactus WGA
+Note this requires PhyloCSF install with custom volvocales WGA and files from cactus WGA (see https://github.com/rorycraig337/Chlamydomonas_comparative_genomics/tree/master/Cactus_WGA)
+Run both for individual exons and whole genes
 
+```
+mkdir control
+cd control
+perl ../cds-exon2mfa.pl --CDS ../CDS.control.bed --maf_path ~/projects/chlamy_genomics/cactus_WGA/run_CC4532/maf/split/
+perl ../format_mfa.pl --list ~/projects/chlamy_genomics/cactus_WGA/run4/4D_divergence/species.txt --out control.align_stats.tsv
+ls f.*mfa > alignments.txt
+~/software/PhyloCSF/PhyloCSF volvocales --files alignments.txt --strategy=omega > phyloCSF_control.txt
+
+mkdir test
+cd test
+perl ../cds-exon2mfa.pl --CDS ../CDS.test.bed --maf_path ~/projects/chlamy_genomics/cactus_WGA/run_CC4532/maf/split/
+perl ../format_mfa.pl --list ~/projects/chlamy_genomics/cactus_WGA/run4/4D_divergence/species.txt --out test.align_stats.tsv
+ls f.*mfa > alignments.txt
+~/software/PhyloCSF/PhyloCSF volvocales --files alignments.txt --strategy=omega > phyloCSF_test.txt
+
+mkdir control_full
+cd control_full
+perl ../cds2mfa.pl --CDS ../CDS.control.bed --maf_path ~/projects/chlamy_genomics/cactus_WGA/run_CC4532/maf/split/
+perl ../format_mfa.pl --list  ~/projects/chlamy_genomics/cactus_WGA/run4/4D_divergence/species.txt --out control.align_stats.tsv
+ls f.*mfa > alignments.txt
+~/software/PhyloCSF/PhyloCSF volvocales --files alignments.txt --strategy=omega > phyloCSF_control_full.txt
+
+mkdir test_full
+cd test_full
+perl ../cds2mfa.pl --CDS ../CDS.test.bed --maf_path ~/projects/chlamy_genomics/cactus_WGA/run_CC4532/maf/split/
+perl ../format_mfa.pl --list  ~/projects/chlamy_genomics/cactus_WGA/run4/4D_divergence/species.txt --out test.align_stats.tsv
+ls f.*mfa > alignments.txt
+~/software/PhyloCSF/PhyloCSF volvocales --files alignments.txt --strategy=omega > phyloCSF_test_full.txt
+```
