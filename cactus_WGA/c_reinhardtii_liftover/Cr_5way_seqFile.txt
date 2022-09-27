@@ -1,0 +1,6 @@
+(CC4532:0.001,(CC1690:0.001,(CC503v4:0.001,(CC503v5:0.001,CC503v6:0.001):0.001):0.001):0.001);
+CC503v4 /Chlamydomonas_v6/repeat_annotation/repeatmasker/Cr.v4.rm.fa
+CC503v5 /Chlamydomonas_v6/repeat_annotation/repeatmasker/Cr.v5.rm.fa
+CC503v6 /Chlamydomonas_v6/repeat_annotation/repeatmasker/Cr.v6.rm.fa
+CC1690 /Chlamydomonas_v6/repeat_annotation/repeatmasker/CC1690.rm.fa
+CC4532 /Chlamydomonas_v6/repeat_annotation/repeatmasker/CC4532_v6.rm.fa
