@@ -1,4 +1,7 @@
 Preliminary TE genes were produced from JGI's pipeline
+These genes were extracted in two steps: 
+1) if they had coding sequence intersect >20% with TEs and lacked strong homology to proteins in other species
+2) if they had coding sequence intersect >80% with TEs and had strong homology to proteins in other species
 These were reduced to a high confidence set using homology and protein domains 
 
 Homology to RepBase TE proteins:
@@ -21,9 +24,6 @@ perl filter_TE-genes.pl --tsv CC4532_putative_TE.blastp_ipr.tsv --out CC4532_put
 perl extract_pass.pl --tsv CC4532_putative_TE.blastp_ipr.pass_fail.tsv --out CC4532_putative_TE.blastp_ipr.pass.tsv
 ```
 The above genes were manually reduced to one representative isoform 
-
-
-
 
 Get overlap between non-TE and TE genes in final CC-4532 v6.1 annotation
 
