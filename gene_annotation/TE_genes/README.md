@@ -20,7 +20,7 @@ perl combine_domain_blastp.pl --ipr CC4532_preliminary_TE_pep.fa.tsv --blast CC4
 perl filter_TE-genes.pl --tsv CC4532_putative_TE.blastp_ipr.tsv --out CC4532_putative_TE.blastp_ipr.pass_fail.tsv
 perl extract_pass.pl --tsv CC4532_putative_TE.blastp_ipr.pass_fail.tsv --out CC4532_putative_TE.blastp_ipr.pass.tsv
 ```
-
+The above genes were manually reduced to one representative isoform 
 
 
 
