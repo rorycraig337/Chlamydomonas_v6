@@ -1,0 +1,36 @@
+##Analysis 2: low quality / low coding potential  pipeline
+
+#genes were first split into two datasets, either: control (at least one homolog in other algal species and/or protein domain) or test (neither a homolog or domain)
+#all analyses were performed on the primary transcript of each gene
+#test set were then scored on four metrics of coding potential:
+
+	1) PhyloCSF in 8-species whole-genome alignment (C. reinhardtii, C. incerta, C. schloesseri, E. debaryana, G. pectorale, Y. unicocca, Eudorina spp., V. carteri)
+	   This score represent coding potential based on the alignment of the predicted CDS, genuine CDS should have high synonymous and low nonsynonymous divergence
+	   The more positive the score the more likely coding, the more negative the more likely noncoding
+	   The score was taken as the highest scoring CDS exon for a given a gene
+	   As a liberal filter any test set genes with a score <1 were deemed to fail this test
+
+	2) Ratio of genetic diversity (pi) at zero-fold and four-fold degenerate sites, calculated from 17 C. reinhardtii field isolations from Quebec
+	   We expect most genuine genes to have higher diversity and synonymous (i.e. 4D sites) than at nonsynonymous (i.e. 0D), and for the ration to be <<1
+	   Test set genes were deemed to fail if they had pi_OD/4D > 95th percentile of the control set (CC-503 = 0.7466381, CC-4532 = 0.7451584)
+
+	3) Synonymous codon usage as quantified by the index of translation elongation (ITE), which is conceptually similar to the codon adaptation index (CAI)
+	   We would expect genuine CDS to be within the range of codon usage of control set genes, while false positive genes would have more random codon usage
+ 	   Test set genes were deemed to fail if they had ITE < 5th percentie of control set (CC-503 = 0.575610, CC-4532 = 0.5763925)
+
+	4) Kozak sequence score, following Cross (2015)
+	   A consensus Kozak sequence logo was made from a random half of the control set genes
+	   A score was ten calculated per test gene based on the match in bits between the test gene start codon context and the consensus Kozak sequence
+	   A test gene failed with a Kozak score <0.25, this is the weakest filter as a) the distribution of control and test do overlap, and b) it requires the gene to have the correct start codon
+
+#based on the above a test set gene was deemed to be low quality and a likely false positive if it failed PhyloCSF + at least 2/3 of the additional tests
+#based on filter above mean number of exons was 1.4 (CC-503 & CC-4532), mean ORF length (minus repetitive sequence) was 416 bp (CC-503) / 422 bp (CC-4532)
+#to avoid over filtering genes were also retained if they had 3 or more exons and/or an ORF length (minus any repetitive sequence) >=900 bp
+#total count was 1435 (CC-503) and and 1417 (CC-4532) low quality genes
+#files are:
+
+CC503.low_quality_genes.txt = CC-503 genes that fail filter and should be designated as low quality
+CC503.coding_potential_analyses.tsv = CC-503 full analyses results
+
+CC4532.low_quality_genes.txt = CC-4532 genes that fail filter and should be designated as low quality
+CC4532.coding_potential_analyses.tsv = CC-4532 full analyses results
